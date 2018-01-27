@@ -16,16 +16,6 @@ public class BaseDAO {
 
  if (DATABASE_URL_PROP != null) { // de applicatie draait op Heroku
 	 
-	 Hashtable env = new Hashtable(5);
-	   env.put(Context.INITIAL_CONTEXT_FACTORY,
-	           "weblogic.jndi.WLInitialContextFactory");
-	   env.put(Context.PROVIDER_URL,
-	           "t3://weblogicServer:7001");
-	   Context ctx = new InitialContext(env);
-	 DataSource ds = (DataSource)ctx.lookup("OracleDS");
-	 
-	 ds.getConnection();
-	 
  URI dbUri = new URI(DATABASE_URL_PROP);
  String dbUrl = "jdbc:oracle:thin:@" + dbUri.getHost() + dbUri.getPath();
  BasicDataSource pool = new BasicDataSource();
@@ -54,15 +44,5 @@ public class BaseDAO {
  try {
  return connectionPool.getConnection();
  } catch (Exception ex) { throw new RuntimeException(ex); }
- }
- 
- protected final Connection getTargetConnection(String dbPrefix, String url, int port, String serviceName, String SID,  String username, String password){
-	 try{
-		 
-		 return connectionPool.getConnection(); //dit moet nog veranderd worden naar de target database (ook oplossing verzinnen voor als t MySQL etc is ivm jdbc jar/drivers)
-	 }
-	 catch(Exception e){
-		 throw new RuntimeException(e);
-	 }
  }
 }
