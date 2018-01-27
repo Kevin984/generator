@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context> 
+ <Resource name="jdbc/OracleDS"
+        auth="Container"
+        type="javax.sql.DataSource"
+        driverClassName="oracle.jdbc.driver.OracleDriver"
+        url="jdbc:oracle:thin:@ondora02.hu.nl:8521/cursus02.hu.nl"
+        username="tosad_2017_2a_team2"
+        password="tosad_2017_2a_team2"/>
+        
+</Context>
