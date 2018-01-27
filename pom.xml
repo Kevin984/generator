@@ -75,11 +75,6 @@
  <artifactId>tomcat-dbcp</artifactId>
  <version>8.0.33</version>
  </artifactItem>
- <artifactItem>
- <groupId>com.oracle</groupId>
-<artifactId>ojdbc6</artifactId>
-<version>11.2.0.4</version>
- </artifactItem>
  </artifactItems>
  </configuration>
  </execution>
