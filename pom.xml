@@ -9,12 +9,6 @@
 
   <name>rulegenerator</name>
   <url>http://maven.apache.org</url>
-<repositories>
-<repository>
-<id>codelds</id>
-<url>https://code.lds.org/nexus/content/groups/main-repo</url>
-</repository>
-</repositories>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -29,12 +23,6 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
-
-<dependency>
-<groupId>com.oracle</groupId>
-<artifactId>ojdbc6</artifactId>
-<version>11.2.0.4</version>
-</dependency>
     
      <dependency>
  <groupId>javax.servlet</groupId>

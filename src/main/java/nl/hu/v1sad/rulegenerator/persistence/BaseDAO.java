@@ -1,6 +1,9 @@
 package nl.hu.v1sad.rulegenerator.persistence;
 
 import java.net.URI; import java.sql.Connection;
+import java.util.Hashtable;
+
+import javax.naming.Context;
 import javax.naming.InitialContext; import javax.sql.DataSource;
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 public class BaseDAO {
@@ -12,6 +15,17 @@ public class BaseDAO {
  final String DATABASE_URL_PROP = System.getenv("DATABASE_URL");
 
  if (DATABASE_URL_PROP != null) { // de applicatie draait op Heroku
+	 
+	 Hashtable env = new Hashtable(5);
+	   env.put(Context.INITIAL_CONTEXT_FACTORY,
+	           "weblogic.jndi.WLInitialContextFactory");
+	   env.put(Context.PROVIDER_URL,
+	           "t3://weblogicServer:7001");
+	   Context ctx = new InitialContext(env);
+	 DataSource ds = (DataSource)ctx.lookup("OracleDS");
+	 
+	 ds.getConnection();
+	 
  URI dbUri = new URI(DATABASE_URL_PROP);
  String dbUrl = "jdbc:oracle:thin:@" + dbUri.getHost() + dbUri.getPath();
  BasicDataSource pool = new BasicDataSource();
