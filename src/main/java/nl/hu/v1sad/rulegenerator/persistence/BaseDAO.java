@@ -33,8 +33,8 @@ public class BaseDAO {
 
  connectionPool = pool;
  } else { // de applicatie draait lokaal
- InitialContext ic = new InitialContext();
- connectionPool = (DataSource)ic.lookup("java:comp/env/jdbc/OracleDS");
+ //InitialContext ic = new InitialContext();
+ //connectionPool = (DataSource)ic.lookup("java:comp/env/jdbc/OracleDS");
  }
  } catch (Exception e) { throw new RuntimeException(e); }
  }
