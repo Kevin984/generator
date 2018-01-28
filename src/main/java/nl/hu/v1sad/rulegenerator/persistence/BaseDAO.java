@@ -3,9 +3,8 @@ package nl.hu.v1sad.rulegenerator.persistence;
 import java.net.URI; import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import javax.naming.Context;
-import javax.naming.InitialContext; 
-import javax.sql.DataSource;
+
+import javax.naming.InitialContext; import javax.sql.DataSource;
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 public class BaseDAO {
  private static DataSource connectionPool;
