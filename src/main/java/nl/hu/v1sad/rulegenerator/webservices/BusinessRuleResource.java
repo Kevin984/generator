@@ -18,15 +18,15 @@ import nl.hu.v1sad.rulegenerator.persistence.RepositoryDatabaseDAO;
 public class BusinessRuleResource {
 private RepositoryDatabaseDAO repoDAO = new RepositoryDatabaseDAO();
 BusinessRuleService brService = BusinessRuleProvider.getBusinessRuleService();
-
+TargetDatabaseService tdService = TargetDatabaseProvider.getTargetDatabaseService();
+/*
 @GET
 @Produces
 public String getBusinessRules() {
 	BusinessRuleService service = BusinessRuleProvider.getBusinessRuleService();
 	JsonArrayBuilder jab = Json.createArrayBuilder();
-	
+		JsonObjectBuilder job = Json.createObjectBuilder();//stond eerst in for loop?	
 	for(BusinessRule br : service.getAllBusinessRules("myDatabase")) {
-		JsonObjectBuilder job = Json.createObjectBuilder();
 		job.add("databasetype", br.getDatabaseType());
 		job.add("name", br.getName());
 		job.add("errormessage", br.getErrorMessage());
@@ -35,4 +35,23 @@ public String getBusinessRules() {
 	JsonArray array = jab.build();
 	return array.toString();
 }
+*/
+
+@GET
+//@Path("{DatabaseName}/tables")
+@Produces//("application/json")
+public String getTableNames(/*@PathParam("DatabaseName") String dbName*/ ){
+	TargetDatabaseService service = TargetDatabaseProvider.getTargetDatabaseService();
+	JsonArrayBuilder jab = Json.createArrayBuilder();
+
+	for(String s : service.getTablesFromDatabase("myDatabase")) {
+		JsonObjectBuilder job = Json.createObjectBuilder();
+		job.add("TableName", s);
+		jab.add(job);
+	}
+	JsonArray array = jab.build();
+	return array.toString();
+}
+
+
 }
