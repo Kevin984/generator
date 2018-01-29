@@ -16,6 +16,12 @@ public class BaseDAO {
  	protected final Connection getRepositoryConnection() {
  		Connection conn = null;
  		try{
+ 			try {
+				Class.forName("oracle.jdbc.driver.OracleDriver");
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
  			conn = DriverManager.getConnection("jdbc:oracle:thin:@ondora02.hu.nl:8521/cursus02.hu.nl", "tosad_2017_2a_team2", "tosad_2017_2a_team2");
  		}
  		catch(SQLException e){
