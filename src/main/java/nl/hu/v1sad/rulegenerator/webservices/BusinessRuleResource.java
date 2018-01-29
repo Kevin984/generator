@@ -12,11 +12,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
 import nl.hu.v1sad.rulegenerator.domain.BusinessRule;
-import nl.hu.v1sad.rulegenerator.persistence.BusinessRuleDAO;
+import nl.hu.v1sad.rulegenerator.persistence.RepositoryDatabaseDAO;
 
 @Path("/businessrules")
 public class BusinessRuleResource {
-private BusinessRuleDAO brDAO = new BusinessRuleDAO();
+private RepositoryDatabaseDAO repoDAO = new RepositoryDatabaseDAO();
 BusinessRuleService brService = BusinessRuleProvider.getBusinessRuleService();
 
 @GET

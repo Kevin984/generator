@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import nl.hu.v1sad.rulegenerator.domain.BusinessRule;
-import nl.hu.v1sad.rulegenerator.persistence.BusinessRuleDAO;
+import nl.hu.v1sad.rulegenerator.persistence.RepositoryDatabaseDAO;
 
 
 public class BusinessRuleService {
-private BusinessRuleDAO brDAO = new BusinessRuleDAO();
+private RepositoryDatabaseDAO repoDAO = new RepositoryDatabaseDAO();
 
 public List<BusinessRule> getAllBusinessRules(String dbName){
-	return brDAO.selectBusinessRules(dbName);
+	return repoDAO.selectBusinessRules(dbName);
 }
 
 }

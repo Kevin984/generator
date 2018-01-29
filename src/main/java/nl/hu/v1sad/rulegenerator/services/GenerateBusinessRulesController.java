@@ -3,11 +3,11 @@ package nl.hu.v1sad.rulegenerator.services;
 import java.util.ArrayList;
 
 import nl.hu.v1sad.rulegenerator.domain.BusinessRule;
-import nl.hu.v1sad.rulegenerator.persistence.BusinessRuleDAO;
+import nl.hu.v1sad.rulegenerator.persistence.RepositoryDatabaseDAO;
 
 
 public class GenerateBusinessRulesController {
-	private BusinessRuleDAO ruleDAO = new BusinessRuleDAO();
+	private RepositoryDatabaseDAO repoDAO = new RepositoryDatabaseDAO();
 	private ArrayList<BusinessRule> rules;
 	private OutputTemplate templatemaker = new OutputTemplate();
 	private String entireTrigger = "";
@@ -16,7 +16,7 @@ public class GenerateBusinessRulesController {
 	}
 	
 	public void generate(String databaseName) {
-		rules = ruleDAO.selectBusinessRules(databaseName);
+		rules = repoDAO.selectBusinessRules(databaseName);
 		
 		
 		for (int i = 0; i < rules.size(); i++) {
