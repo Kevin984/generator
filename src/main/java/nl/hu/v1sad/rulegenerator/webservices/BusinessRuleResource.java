@@ -28,6 +28,6 @@ public class BusinessRuleResource {
 			jab.add(job);
 		}
 		JsonArray array = jab.build();
-		return array.get(0).toString();
+		return array.toString();
 	}
 }
