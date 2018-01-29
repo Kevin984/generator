@@ -20,7 +20,7 @@ public class BusinessRuleResource {
 	public String getBusinessRules(@PathParam("DatabaseName") String dbName) {
 		BusinessRuleService service = BusinessRuleProvider.getBusinessRuleService();
 		JsonArrayBuilder jab = Json.createArrayBuilder();
-		for(BusinessRule br : service.getAllBusinessRules(dbName)) { //make it dynamic
+		for(BusinessRule br : service.getAllBusinessRules(dbName)) { 
 			JsonObjectBuilder job = Json.createObjectBuilder();	
 			job.add("databasetype", br.getDatabaseType());
 			job.add("name", br.getName());

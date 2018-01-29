@@ -44,10 +44,11 @@ public class TargetDatabaseResource {
 			JsonObjectBuilder job = Json.createObjectBuilder();
 			
 			String[] column = s.split(":");
-			
-			
 		    job.add("columnname", column[0]);
-		    job.add("columndatatype", column[1]);
+		    job.add("datatype", column[1]);
+		    job.add("length", column[2]);
+		    job.add("scale", column[3]);
+		    job.add("precision", column[4]);
 
 			jab.add(job);
 		}

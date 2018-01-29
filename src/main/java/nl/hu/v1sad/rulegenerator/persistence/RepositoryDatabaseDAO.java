@@ -28,7 +28,7 @@ public class RepositoryDatabaseDAO extends BaseDAO{
 						"AND UPPER(BR.STATUS) = 'TOBEGENERATED'" +
 						"AND BR.NAME = 'testuuh2'";
 						//"AND UPPER(BR.STATUS) = 'TOBEGENERATED'";
-				
+				businessRules.clear();
 		try (Connection con = super.getRepositoryConnection()){
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(query);

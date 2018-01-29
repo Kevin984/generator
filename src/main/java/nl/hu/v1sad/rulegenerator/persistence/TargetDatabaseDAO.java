@@ -44,7 +44,7 @@ public class TargetDatabaseDAO extends BaseDAO {
 	}
 	
 	public ArrayList<String> getAllColumnsOfTable(String databaseName, String tableName) {
-		String query = "SELECT COLUMN_NAME, DATA_TYPE|| '(' || data_length || ')' as DATA_TYPE FROM USER_TAB_COLUMNS WHERE upper(table_name) = '" + tableName.toUpperCase() + "'";
+		String query = "SELECT COLUMN_NAME, DATA_TYPE, DATA_LENGTH, DATA_SCALE, DATA_PRECISION FROM USER_TAB_COLUMNS WHERE upper(table_name) = '" + tableName.toUpperCase() + "'";
 		dbInfo = repoDAO.selectTargetDBInfo(databaseName);
 		columns.clear();
 		try (Connection con = super.getTargetConnection(dbInfo.get(0), dbInfo.get(1), dbInfo.get(2), dbInfo.get(3), dbInfo.get(4), dbInfo.get(5), dbInfo.get(6))){
@@ -52,8 +52,11 @@ public class TargetDatabaseDAO extends BaseDAO {
 			ResultSet rs = stmt.executeQuery(query);
 			while(rs.next()) {
 				String columnname = rs.getString("COLUMN_NAME");
-				String columndatatype = rs.getString("DATA_TYPE");
-				columns.add(columnname+":"+columndatatype);
+				String datatype = rs.getString("DATA_TYPE");
+				String length = rs.getString("DATA_LENGTH");
+				String scale = rs.getString("DATA_SCALE");
+				String precision = rs.getString("DATA_PRECISION");
+				columns.add(columnname+":"+datatype+":"+length+":"+scale+":"+precision);
 			}
 		}
 		catch(SQLException e) {
