@@ -16,9 +16,9 @@ public class TargetDatabaseResource {
 	TargetDatabaseService tdService = TargetDatabaseProvider.getTargetDatabaseService();
 	
 	@GET
-//	@Path("{DatabaseName}/tables")
+	@Path("{DatabaseName}/tables")
 	@Produces("application/json")
-	public String getTableNames(/*@PathParam("DatabaseName") String dbName*/ ){
+	public String getTableNames(@PathParam("DatabaseName") String dbName ){
 		TargetDatabaseService service = TargetDatabaseProvider.getTargetDatabaseService();
 		JsonArrayBuilder jab = Json.createArrayBuilder();
 
@@ -30,7 +30,7 @@ public class TargetDatabaseResource {
 		JsonArray array = jab.build();
 		return array.toString();
 	}
-	/*
+	
 	@GET
 	@Path("{DatabaseName}/{TableName}/columns")
 	@Produces("application/json")
@@ -45,5 +45,5 @@ public class TargetDatabaseResource {
 		}
 		JsonArray array = jab.build();
 		return array.toString();
-	}*/
+	}
 }

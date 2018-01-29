@@ -18,8 +18,7 @@ import nl.hu.v1sad.rulegenerator.persistence.RepositoryDatabaseDAO;
 public class BusinessRuleResource {
 private RepositoryDatabaseDAO repoDAO = new RepositoryDatabaseDAO();
 BusinessRuleService brService = BusinessRuleProvider.getBusinessRuleService();
-TargetDatabaseService tdService = TargetDatabaseProvider.getTargetDatabaseService();
-/*
+
 @GET
 @Produces
 public String getBusinessRules() {
@@ -35,23 +34,4 @@ public String getBusinessRules() {
 	JsonArray array = jab.build();
 	return array.toString();
 }
-*/
-
-@GET
-//@Path("{DatabaseName}/tables")
-@Produces//("application/json")
-public String getTableNames(/*@PathParam("DatabaseName") String dbName*/ ){
-	TargetDatabaseService service = TargetDatabaseProvider.getTargetDatabaseService();
-	JsonArrayBuilder jab = Json.createArrayBuilder();
-
-	for(String s : service.getTablesFromDatabase("myDatabase")) {
-		JsonObjectBuilder job = Json.createObjectBuilder();
-		job.add("TableName", s);
-		jab.add(job);
-	}
-	JsonArray array = jab.build();
-	return array.toString();
-}
-
-
 }

@@ -27,8 +27,8 @@ public class BaseDAO {
  	protected final Connection getTargetConnection(String driverPrefix, String url, String port, String divider, String SIDorSERVICENAME, String username, String password) {
  		Connection conn = null;
  		try{
- 		//	conn = DriverManager.getConnection(driverPrefix + url + ":" + port + divider + SIDorSERVICENAME, username, password); //if SID, use : instead of / (after port) ALSO: other databases may have it differently
- 			conn = DriverManager.getConnection("jdbc:oracle:thin:@ondora02.hu.nl:8521/cursus02.hu.nl", "tosad_2017_2a_team2_target", "tosad_2017_2a_team2");
+ 			conn = DriverManager.getConnection(driverPrefix + url + ":" + port + divider + SIDorSERVICENAME, username, password); //if SID, use : instead of / (after port) ALSO: other databases may have it differently
+ 		//	conn = DriverManager.getConnection("jdbc:oracle:thin:@ondora02.hu.nl:8521/cursus02.hu.nl", "tosad_2017_2a_team2_target", "tosad_2017_2a_team2_target");
 
  		}
  		catch(SQLException e){
