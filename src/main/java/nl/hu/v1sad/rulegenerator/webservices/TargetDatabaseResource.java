@@ -24,9 +24,9 @@ public class TargetDatabaseResource {
 		TargetDatabaseService service = TargetDatabaseProvider.getTargetDatabaseService();
 		JsonArrayBuilder jab = Json.createArrayBuilder();
 
-		for(String s : service.getTablesFromDatabase("myDatabase")) {
+		for(String s : service.getTablesFromDatabase(dbName)) {
 			JsonObjectBuilder job = Json.createObjectBuilder();
-			job.add("TableName", s);
+			job.add("tablename", s);
 			jab.add(job);
 		}
 		JsonArray array = jab.build();
@@ -46,8 +46,8 @@ public class TargetDatabaseResource {
 			String[] column = s.split(":");
 			
 			
-		    job.add("ColumnName", column[0]);
-		    job.add("ColumnDataType", column[1]);
+		    job.add("columnname", column[0]);
+		    job.add("columndatatype", column[1]);
 
 			jab.add(job);
 		}
