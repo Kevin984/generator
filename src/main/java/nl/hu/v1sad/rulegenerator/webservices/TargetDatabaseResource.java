@@ -47,8 +47,8 @@ public class TargetDatabaseResource {
 		    job.add("columnname", column[0]);
 		    job.add("datatype", column[1]);
 		    job.add("length", column[2]);
-		    job.add("scale", column[3]);
-		    job.add("precision", column[4]);
+		 //   job.add("scale", column[3]);
+		//    job.add("precision", column[4]);
 
 			jab.add(job);
 		}
