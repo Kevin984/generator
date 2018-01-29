@@ -24,8 +24,9 @@ BusinessRuleService brService = BusinessRuleProvider.getBusinessRuleService();
 public String getBusinessRules() {
 	BusinessRuleService service = BusinessRuleProvider.getBusinessRuleService();
 	JsonArrayBuilder jab = Json.createArrayBuilder();
-		JsonObjectBuilder job = Json.createObjectBuilder();//stond eerst in for loop?	
+	//	JsonObjectBuilder job = Json.createObjectBuilder();//stond eerst in for loop?	
 	for(BusinessRule br : service.getAllBusinessRules("myDatabase")) {
+		JsonObjectBuilder job = Json.createObjectBuilder();//stond eerst in for loop?	
 		job.add("databasetype", br.getDatabaseType());
 		job.add("name", br.getName());
 		job.add("errormessage", br.getErrorMessage());
