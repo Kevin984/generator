@@ -1,5 +1,7 @@
 package nl.hu.v1sad.rulegenerator.webservices;
 
+import java.util.List;
+
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonArrayBuilder;
@@ -40,7 +42,13 @@ public class TargetDatabaseResource {
 
 		for(String s : service.getColumnsFromTable(dbName, tableName)) {
 			JsonObjectBuilder job = Json.createObjectBuilder();
-		    job.add("ColumnName", s);
+			
+			String[] column = s.split(":");
+			
+			
+		    job.add("ColumnName", column[0]);
+		    job.add("ColumnDataType", column[1]);
+
 			jab.add(job);
 		}
 		JsonArray array = jab.build();
