@@ -25,9 +25,9 @@ public class RepositoryDatabaseDAO extends BaseDAO{
 						"INNER JOIN OPERATOR O\n" + 
 						"ON O.NAME = BRRT.OPERATORNAME\n" + 
 						"WHERE UPPER(BR.DATABASENAME) = '" + databaseName.toUpperCase() + "' \n" + 
-						"AND UPPER(BR.STATUS) = 'TOBEGENERATED'" +
-						"AND BR.NAME = 'testuuh2'";
-						//"AND UPPER(BR.STATUS) = 'TOBEGENERATED'";
+						//"AND UPPER(BR.STATUS) = 'TOBEGENERATED'" +
+						//"AND BR.NAME = 'testuuh2'";
+						"AND UPPER(BR.STATUS) = 'TOBEGENERATED'";
 				businessRules.clear();
 		try (Connection con = super.getRepositoryConnection()){
 			Statement stmt = con.createStatement();
