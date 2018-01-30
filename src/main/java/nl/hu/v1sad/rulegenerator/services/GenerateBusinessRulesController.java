@@ -18,7 +18,7 @@ public class GenerateBusinessRulesController {
 	
 	public List<String> generate(String databaseName) {
 		rules = repoDAO.selectBusinessRules(databaseName);
-		
+		triggers.clear();
 		for (int i = 0; i < rules.size(); i++) {
 			String template = templatemaker.getFilledTemplate(rules.get(i));
 			triggers.add(template);
