@@ -11,7 +11,7 @@ public class GenerateBusinessRulesController {
 	private RepositoryDatabaseDAO repoDAO = new RepositoryDatabaseDAO();
 	private ArrayList<BusinessRule> rules;
 	private OutputTemplate templatemaker = new OutputTemplate();
-	private List<String> triggers = null;
+	private List<String> triggers = new ArrayList<String>();
 	
 	public GenerateBusinessRulesController() {
 	}

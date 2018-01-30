@@ -15,13 +15,13 @@ public class TriggerTextTestResource {
 	@GET
 	@Path("{DatabaseName}")
 	@Produces("application/json")
-	public String getTableNames(@PathParam("DatabaseName") String dbName ){
+	public String getTrigger(@PathParam("DatabaseName") String dbName ){
 		TriggerTextTestService service = TriggerTextTestProvider.getTriggerTextTestService();
 		JsonArrayBuilder jab = Json.createArrayBuilder();
 
 		for(String s : service.generateTrigger(dbName)) {
 			JsonObjectBuilder job = Json.createObjectBuilder();
-			job.add("tablename", s);
+			job.add("trigger", s);
 			jab.add(job);
 		}
 		JsonArray array = jab.build();
