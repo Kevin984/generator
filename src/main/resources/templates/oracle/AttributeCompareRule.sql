@@ -1,0 +1,26 @@
+CREATE OR REPLACE TRIGGER BRG_<code>_<targettable>_TRG
+BEFORE INSERT OR UPDATE
+ON <targettable>
+FOR EACH ROW
+DECLARE
+  L_PASSED       BOOLEAN := FALSE;
+  V_COLUMN_1     VARCHAR2(60) := :NEW.<targetcolumn>;
+  V_COMVALUE     VARCHAR2(255) := '<comparevalue>';
+  V_COMVALUE_NUM NUMBER(10);
+BEGIN
+  IF REGEXP_LIKE(V_COMVALUE, '^[[:digit:]]+$') THEN
+  V_COMVALUE_NUM := TO_NUMBER(V_COMVALUE);
+    IF (V_COLUMN_1 <operator> V_COMVALUE_NUM) THEN
+      L_PASSED := TRUE;
+    ELSE
+      RAISE_APPLICATION_ERROR(-20000, <error>);
+    END IF;
+  END IF;
+  IF NOT L_PASSED THEN
+    IF (V_COLUMN_1 <operator> V_COMVALUE) THEN
+      L_PASSED := TRUE;
+    ELSE
+      RAISE_APPLICATION_ERROR(-20000, <error>);
+    END IF;
+  END IF;
+END;

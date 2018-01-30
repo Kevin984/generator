@@ -21,7 +21,7 @@ public class OutputTemplate {
 
 			BufferedReader bufferedReader = new BufferedReader(
 		    //get the template by checking the businessrule for its Type
-		    new FileReader("src/resources/templates/" + databaseType + "/" + ruleTypeName + ".sql")
+		    new FileReader("src/main/resources/templates/" + databaseType + "/" + ruleTypeName + ".sql")
 		    );
 			
 		    StringBuilder sb = new StringBuilder();
