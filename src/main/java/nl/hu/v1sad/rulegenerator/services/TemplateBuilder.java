@@ -20,7 +20,7 @@ public class TemplateBuilder {
 			String databaseType = br.getDatabaseType();
 
 			BufferedReader bufferedReader = new BufferedReader(
-		    //get the template by checking the businessrule for its Type
+		    //get the template by checking the businessrule for its Type 
 		    new FileReader("src/main/resources/templates/" + databaseType + "/" + ruleTypeName + ".sql")
 		    );
 			
