@@ -34,7 +34,6 @@ public class GenerateBusinessRulesController {
 		}
 		
 		message.add(targetDAO.executeTrigger(databaseName, triggers, rules));
-		repoDAO.saveTrigger(entireTrigger, databaseName);
 		return message;
 	}
 }
