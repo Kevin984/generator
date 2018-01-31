@@ -38,9 +38,7 @@ public class TupleOtherRule extends BusinessRuleType {
 		template = template.replaceAll("<code>", br.getRuleType().getCode());
 		template = template.replaceAll("<target_table>", targetTableName);
 		template = template.replaceAll("<customCode>", customCode);
-		template = template.replaceAll("<code>", br.getRuleType().getCode());
-		template = template.replaceAll("<code>", br.getRuleType().getCode());
-
+		template = template.replaceAll("<customCode>", br.getErrorMessage());
 		return template;
 	}
 }

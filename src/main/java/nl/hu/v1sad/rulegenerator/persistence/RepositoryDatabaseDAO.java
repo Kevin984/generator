@@ -39,7 +39,6 @@ public class RepositoryDatabaseDAO extends BaseDAO{
 				String businessRuleName = rs.getString("BUSINESSRULENAME");
 				String errorMessage = rs.getString("ERRORMESSAGE");
 
-
 				Operator operator = new Operator(operatorName, operatorSign);
 				BusinessRuleType ruleType = factory.getRuleType(ruleTypeName, rs);
 				BusinessRule rule = new BusinessRule(businessRuleName, ruleType, operator, databaseType, errorMessage);
@@ -57,6 +56,7 @@ public class RepositoryDatabaseDAO extends BaseDAO{
 		try (Connection con = super.getRepositoryConnection()){
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
+			dbInfo.clear();
 			
 			while(rs.next()) {
 				dbInfo.add(rs.getString("DRIVERPREFIX"));

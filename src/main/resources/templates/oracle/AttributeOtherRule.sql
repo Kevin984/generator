@@ -1,6 +1,6 @@
-CREATE OR REPLACE TRIGGER BRG_{code}_{attribute_table}_TRG
+CREATE OR REPLACE TRIGGER BRG_<code>_<target_table>_TRG
 BEFORE DELETE OR INSERT OR UPDATE
-ON {attribute_table}
+ON <target_table>
 FOR EACH ROW
 DECLARE
   L_OPER        VARCHAR2(3);
@@ -19,10 +19,10 @@ BEGIN
   END IF;
   IF L_OPER IN ('INS', 'UPD')
   THEN
-    L_PASSED := {other_statement};
+    L_PASSED := <customCode>;
     END IF;
   IF NOT l_PASSED
   THEN
-    RAISE_APPLICATION_ERROR(-20000, {error});
+    RAISE_APPLICATION_ERROR(-20000, <error>);
   END IF;
 END;
