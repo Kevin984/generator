@@ -10,18 +10,18 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 @Path("/generatetrigger")
-public class TriggerTextTestResource {
+public class TriggerResource {
 	
 	@GET
-	@Path("{DatabaseName}")
+	@Path("{DatabaseName}/{TriggerName}")
 	@Produces("application/json")
-	public String getTrigger(@PathParam("DatabaseName") String dbName ){
-		TriggerTextTestService service = TriggerTextTestServiceProvider.getTriggerTextTestService();
+	public String getTrigger(@PathParam("DatabaseName") String dbName, @PathParam("TriggerName") String triggerName){
+		TriggerService service = TriggerServiceProvider.getTriggerTextTestService();
 		JsonArrayBuilder jab = Json.createArrayBuilder();
 
-		for(String s : service.generateTrigger(dbName)) {
+		for(String s : service.generateTrigger(dbName, triggerName)) {
 			JsonObjectBuilder job = Json.createObjectBuilder();
-			job.add("trigger", s);
+			job.add("message", s);
 			jab.add(job);
 		}
 		JsonArray array = jab.build();

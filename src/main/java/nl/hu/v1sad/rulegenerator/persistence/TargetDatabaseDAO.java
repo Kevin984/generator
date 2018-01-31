@@ -15,7 +15,7 @@ public class TargetDatabaseDAO extends BaseDAO {
 	private ArrayList<String> tables = new ArrayList<String>();
 	private ArrayList<String> columns = new ArrayList<String>();
 	
-	public String executeTrigger(String databaseName, ArrayList<String> triggers, ArrayList<BusinessRule> rules) {
+	public String executeTrigger(String databaseName, ArrayList<String> triggers, ArrayList<BusinessRule> rules, String triggerName) {
 		dbInfo = repoDAO.selectTargetDBInfo(databaseName);
 		try (Connection con = super.getTargetConnection(dbInfo.get(0), dbInfo.get(1), dbInfo.get(2), dbInfo.get(3), dbInfo.get(4), dbInfo.get(5), dbInfo.get(6))){
 			Statement stmt = con.createStatement();
@@ -24,7 +24,7 @@ public class TargetDatabaseDAO extends BaseDAO {
 				stmt.executeQuery(trigger);
 				int i = triggers.indexOf(trigger);
 				BusinessRule rule = rules.get(i);
-				repoDAO.updateBusinessRuleStatus(rule);
+				repoDAO.updateBusinessRuleStatusAndTriggername(rule, triggerName);
 			}
 			stmt.close();
 		}
