@@ -1,6 +1,6 @@
-CREATE OR REPLACE TRIGGER BRG_<code>_<target_table>_TRG
+CREATE OR REPLACE TRIGGER BRG_{code}_{attribute_table}_TRG
 BEFORE DELETE OR INSERT OR UPDATE
-ON <target_table>
+ON {modify_table}
 FOR EACH ROW
 DECLARE
   L_OPER        VARCHAR2(3);
@@ -19,12 +19,12 @@ BEGIN
   DECLARE
     L_PASSED BOOLEAN := TRUE;
   BEGIN
-    IF :NEW.<target_column> = {value} AND L_OPER = ''UPD''
+    IF :NEW.{modify_column} = {value} AND L_OPER = ''UPD''
     THEN
-    L_PASSED := :NEW.<target_column> <= :OLD.<target_column>;
+    L_PASSED := :NEW.{modify_column} <= :OLD.{modify_column};
     IF NOT L_PASSED
     THEN
-      L_ERROR_STACK := L_ERROR_STACK || <error>;
+      L_ERROR_STACK := L_ERROR_STACK || {error}
     END IF;
   END IF;
 END;

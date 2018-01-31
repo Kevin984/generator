@@ -1,4 +1,4 @@
-package nl.hu.v1sad.rulegenerator.services;
+package tempPackage.PleaseDeleteLater;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import nl.hu.v1sad.rulegenerator.persistence.RepositoryDatabaseDAO;
 public class GenerateBusinessRulesController {
 	private RepositoryDatabaseDAO repoDAO = new RepositoryDatabaseDAO();
 	private ArrayList<BusinessRule> rules;
-	private TemplateBuilder templateBuilder = new TemplateBuilder();
+	private OutputTemplate templatemaker = new OutputTemplate();
 	private List<String> triggers = new ArrayList<String>();
 	
 	public GenerateBusinessRulesController() {
@@ -20,7 +20,7 @@ public class GenerateBusinessRulesController {
 		rules = repoDAO.selectBusinessRules(databaseName);
 		triggers.clear();
 		for (int i = 0; i < rules.size(); i++) {
-			String template = templateBuilder.getFilledTemplate(rules.get(i));
+			String template = templatemaker.getFilledTemplate(rules.get(i));
 			triggers.add(template);
 		}
 		

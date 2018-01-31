@@ -1,4 +1,4 @@
-package nl.hu.v1sad.rulegenerator.services;
+package nl.hu.v1sad.rulegenerator.webservices;
 
 import java.util.ArrayList;
 import java.util.List;

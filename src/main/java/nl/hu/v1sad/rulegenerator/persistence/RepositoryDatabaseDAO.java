@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import nl.hu.v1sad.rulegenerator.domain.BusinessRule;
 import nl.hu.v1sad.rulegenerator.domain.BusinessRuleType;
 import nl.hu.v1sad.rulegenerator.domain.Operator;
-import nl.hu.v1sad.rulegenerator.domain.RuleTypeFactory;
+import tempPackage.PleaseDeleteLater.RuleTypeFactory;
 
 public class RepositoryDatabaseDAO extends BaseDAO{
 	private ArrayList<BusinessRule> businessRules = new ArrayList<BusinessRule>();

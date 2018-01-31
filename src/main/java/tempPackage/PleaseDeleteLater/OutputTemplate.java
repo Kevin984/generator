@@ -1,4 +1,4 @@
-package nl.hu.v1sad.rulegenerator.services;
+package tempPackage.PleaseDeleteLater;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -9,7 +9,7 @@ import nl.hu.v1sad.rulegenerator.domain.BusinessRule;
 import nl.hu.v1sad.rulegenerator.domain.BusinessRuleType;
 
 
-public class TemplateBuilder {
+public class OutputTemplate {
 
 	public String getFilledTemplate(BusinessRule br) {
 		String emptyTemplate = "";
