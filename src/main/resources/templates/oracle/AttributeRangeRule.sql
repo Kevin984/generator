@@ -24,7 +24,7 @@ BEGIN
         L_PASSED := :NEW.<targetcolumn> <operator> <range_min> AND <range_max>;
       IF NOT L_PASSED
       THEN
-        raise_application_error(-20000, "<error>");
+        raise_application_error(-20000, '<error>');
       END IF;
     END IF;
   END;

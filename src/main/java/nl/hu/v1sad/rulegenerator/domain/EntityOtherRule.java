@@ -30,10 +30,13 @@ public class EntityOtherRule extends BusinessRuleType {
 		this.customCode = customCode;
 	}
 	
-	@Override
-	public String fillTemplate(String template, BusinessRule br) {
-		return "return EOTH";
-	}
+	 @Override
+	    public String fillTemplate(String template, BusinessRule br) {
+	        template = template.replaceAll("<code>", br.getRuleType().getCode());
+	        template = template.replaceAll("<target_table>", targetTableName);
+	        template = template.replaceAll("<error>", br.getErrorMessage());
+	        template = template.replaceAll("<customCode>", customCode);
 
-
-}
+	        return template;
+	    }
+} 
