@@ -33,8 +33,8 @@ public class GenerateBusinessRulesController {
 			entireTrigger.concat(template);
 		}
 		
-		message.add(targetDAO.executeTrigger(databaseName, triggers));
-		repoDAO.saveTrigger(entireTrigger);
+		message.add(targetDAO.executeTrigger(databaseName, triggers, rules));
+		repoDAO.saveTrigger(entireTrigger, databaseName);
 		return message;
 	}
 }

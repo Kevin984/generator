@@ -6,7 +6,7 @@ DECLARE
   L_PASSED BOOLEAN := FALSE;
   V_COLUMN_1    VARCHAR2(60) := :NEW.<targetcolumn>;
 BEGIN
-      IF V_COLUMN_1 <operator> <list> THEN
+      IF V_COLUMN_1 <operator> (<list>) THEN
         L_PASSED := TRUE;
       ELSE
         RAISE_APPLICATION_ERROR(-20000, '<error>');

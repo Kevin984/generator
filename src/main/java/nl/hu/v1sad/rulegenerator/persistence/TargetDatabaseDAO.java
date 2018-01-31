@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import nl.hu.v1sad.rulegenerator.domain.BusinessRule;
 import nl.hu.v1sad.rulegenerator.persistence.RepositoryDatabaseDAO;
 
 public class TargetDatabaseDAO extends BaseDAO {
@@ -14,14 +15,16 @@ public class TargetDatabaseDAO extends BaseDAO {
 	private ArrayList<String> tables = new ArrayList<String>();
 	private ArrayList<String> columns = new ArrayList<String>();
 	
-	public String executeTrigger(String databaseName, ArrayList<String> triggers) {
+	public String executeTrigger(String databaseName, ArrayList<String> triggers, ArrayList<BusinessRule> rules) {
 		dbInfo = repoDAO.selectTargetDBInfo(databaseName);
 		try (Connection con = super.getTargetConnection(dbInfo.get(0), dbInfo.get(1), dbInfo.get(2), dbInfo.get(3), dbInfo.get(4), dbInfo.get(5), dbInfo.get(6))){
 			Statement stmt = con.createStatement();
 			
 			for (String trigger : triggers) {
 				stmt.executeQuery(trigger);
-				//repoDAO.updateBusinessRuleStatus(br);
+				int i = triggers.indexOf(trigger);
+				BusinessRule rule = rules.get(i);
+				repoDAO.updateBusinessRuleStatus(rule);
 			}
 			stmt.close();
 		}
@@ -29,7 +32,7 @@ public class TargetDatabaseDAO extends BaseDAO {
 			e.printStackTrace();
 			return e.getMessage();
 		}
-		return "Success";
+		return "The business rules were succesfully executed on your database.";
 	}
 	
 	public ArrayList<String> getAllTablesOfDatabase(String databaseName) {

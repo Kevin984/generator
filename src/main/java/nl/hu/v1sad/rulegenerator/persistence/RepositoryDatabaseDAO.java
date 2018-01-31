@@ -95,7 +95,14 @@ public class RepositoryDatabaseDAO extends BaseDAO{
 		return dbInfo;
 	}
 
-	public void saveTrigger(String trigger) {
-		
+	public void saveTrigger(String trigger, String databaseName) {
+		String query = 	"UPDATE TARGETDATABASE SET CODE = '" + trigger + "' WHERE UPPER(DATABASENAME) = '" + databaseName.toUpperCase() + "'";
+		try (Connection con = super.getRepositoryConnection()){
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(query);
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }
