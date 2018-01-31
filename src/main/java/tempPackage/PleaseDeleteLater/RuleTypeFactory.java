@@ -36,7 +36,7 @@ public class RuleTypeFactory {
 				return new AttributeListRule(firstTargetTableName, firstTargetColumnName, valueList);
 			}
 			else if (ruleType.equalsIgnoreCase("Attribute Other Rule")) {
-				return new AttributeOtherRule(customCode);
+				return new AttributeOtherRule(firstTargetTableName,customCode);
 			}
 			else if (ruleType.equalsIgnoreCase("Tuple Compare Rule")) {
 				return new TupleCompareRule(firstTargetTableName, firstTargetColumnName, secondTargetColumnName);
