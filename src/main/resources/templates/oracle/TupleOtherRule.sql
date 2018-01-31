@@ -1,6 +1,6 @@
-CREATE OR REPLACE TRIGGER BRG_{code}_{attribute_table}_TRG
+CREATE OR REPLACE TRIGGER BRG_<code>_<target_table>_TRG
 BEFORE DELETE OR INSERT OR UPDATE
-ON {tuple_table}
+ON <target_table>
 FOR EACH ROW
 DECLARE
   L_OPER        VARCHAR2(3);
@@ -22,10 +22,10 @@ BEGIN
   BEGIN
     IF L_OPER IN ('INS', 'UPD')
     THEN
-      L_PASSED := {statement}
+      L_PASSED := <statement>
       IF NOT L_PASSED
       THEN
-      L_ERROR_STACK := L_ERROR_STACK || {error};
+      L_ERROR_STACK := L_ERROR_STACK || <error>;
     END IF;
   END IF;
 END;

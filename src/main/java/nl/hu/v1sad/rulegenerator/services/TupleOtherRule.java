@@ -35,8 +35,12 @@ public class TupleOtherRule extends BusinessRuleType {
 
 	@Override
 	public String fillTemplate(String template, BusinessRule br) {
-		return "return TOTH";
-	}
+		template = template.replaceAll("<code>", br.getRuleType().getCode());
+		template = template.replaceAll("<target_table>", targetTableName);
+		template = template.replaceAll("<customCode>", customCode);
+		template = template.replaceAll("<code>", br.getRuleType().getCode());
+		template = template.replaceAll("<code>", br.getRuleType().getCode());
 
-	
+		return template;
+	}
 }

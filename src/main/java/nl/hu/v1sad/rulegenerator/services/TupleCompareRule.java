@@ -45,6 +45,12 @@ public class TupleCompareRule extends BusinessRuleType {
 	
 	@Override
 	public String fillTemplate(String template, BusinessRule br) {
-		return "return TCMP";
+		template = template.replaceAll("<code>", br.getRuleType().getCode());
+		template = template.replaceAll("<tuple_table>", targetTableName);
+		template = template.replaceAll("<operator>", br.getOperator().getSign());
+		template = template.replaceAll("<tuple_column_1>", firstTargetColumnName);
+		template = template.replaceAll("<tuple_column_2>", secondTargetColumnName);
+		template = template.replaceAll("<error>", br.getErrorMessage());
+		return template;
 	}
 }
