@@ -94,5 +94,8 @@ public class RepositoryDatabaseDAO extends BaseDAO{
 		}
 		return dbInfo;
 	}
-	
+
+	public void saveTrigger(String trigger) {
+		
+	}
 }
