@@ -19,6 +19,7 @@ public class TargetDatabaseDAO extends BaseDAO {
 		try (Connection con = super.getTargetConnection(dbInfo.get(0), dbInfo.get(1), dbInfo.get(2), dbInfo.get(3), dbInfo.get(4), dbInfo.get(5), dbInfo.get(6))){
 			Statement stmt = con.createStatement();
 			stmt.executeQuery(trigger);
+			stmt.close();
 		}
 		catch(SQLException e) {
 			e.printStackTrace();

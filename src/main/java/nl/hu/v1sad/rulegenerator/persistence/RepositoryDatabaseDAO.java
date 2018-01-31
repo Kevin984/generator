@@ -51,6 +51,22 @@ public class RepositoryDatabaseDAO extends BaseDAO{
 		return businessRules;
 	}
 	
+	public boolean updateBusinessRuleStatus(BusinessRule br) {
+		boolean result = false;
+		String query ="UPDATE BUSINESSRULE SET "
+				+ "STATUS = 'GENERATED'"
+				+ "WHERE NAME = '" + br.getName() +"'";
+		
+		try (Connection con = super.getRepositoryConnection()){
+			Statement stmt = con.createStatement();
+			stmt.executeUpdate(query);
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
 	public ArrayList<String> selectTargetDBInfo(String databaseName) {
 		String query = 	"SELECT * FROM TARGETDATABASE WHERE UPPER(DATABASENAME) = '" + databaseName.toUpperCase() + "'";
 		try (Connection con = super.getRepositoryConnection()){
