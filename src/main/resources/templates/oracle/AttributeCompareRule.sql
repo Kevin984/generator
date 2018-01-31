@@ -13,14 +13,14 @@ BEGIN
     IF (V_COLUMN_1 <operator> V_COMVALUE_NUM) THEN
       L_PASSED := TRUE;
     ELSE
-      RAISE_APPLICATION_ERROR(-20000, <error>);
+      RAISE_APPLICATION_ERROR(-20000, "<error>");
     END IF;
   END IF;
   IF NOT L_PASSED THEN
     IF (V_COLUMN_1 <operator> V_COMVALUE) THEN
       L_PASSED := TRUE;
     ELSE
-      RAISE_APPLICATION_ERROR(-20000, <error>);
+      RAISE_APPLICATION_ERROR(-20000, "<error>");
     END IF;
   END IF;
 END;

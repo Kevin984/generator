@@ -24,7 +24,7 @@ BEGIN
     L_PASSED := :NEW.{modify_column} <= :OLD.{modify_column};
     IF NOT L_PASSED
     THEN
-      L_ERROR_STACK := L_ERROR_STACK || {error}
+      L_ERROR_STACK := L_ERROR_STACK || "<error>"
     END IF;
   END IF;
 END;

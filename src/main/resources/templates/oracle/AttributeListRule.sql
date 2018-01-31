@@ -9,10 +9,10 @@ BEGIN
       IF V_COLUMN_1 <operator> <list> THEN
         L_PASSED := TRUE;
       ELSE
-        RAISE_APPLICATION_ERROR(-20000, <error>);
+        RAISE_APPLICATION_ERROR(-20000, "<error>");
     END IF;
 
   IF NOT L_PASSED THEN
-    RAISE_APPLICATION_ERROR(-20000, 'Error: Something went wrong!' );
+    RAISE_APPLICATION_ERROR(-20000, "<error>");
     END IF;
   END;

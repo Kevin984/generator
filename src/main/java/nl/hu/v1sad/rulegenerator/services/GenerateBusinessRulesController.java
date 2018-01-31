@@ -22,6 +22,7 @@ public class GenerateBusinessRulesController {
 	
 	public List<String> generate(String databaseName) {
 		rules.clear();
+		message.clear();
 		rules = repoDAO.selectBusinessRules(databaseName);
 		
 		triggers.clear();
