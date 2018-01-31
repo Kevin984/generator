@@ -1,7 +1,4 @@
-package nl.hu.v1sad.rulegenerator.services;
-
-import nl.hu.v1sad.rulegenerator.domain.BusinessRule;
-import nl.hu.v1sad.rulegenerator.domain.BusinessRuleType;
+package nl.hu.v1sad.rulegenerator.domain;
 
 public class TupleCompareRule extends BusinessRuleType {
 	private String targetTableName;

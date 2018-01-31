@@ -1,21 +1,18 @@
-package nl.hu.v1sad.rulegenerator.services;
+package nl.hu.v1sad.rulegenerator.domain;
 
-import nl.hu.v1sad.rulegenerator.domain.BusinessRule;
-import nl.hu.v1sad.rulegenerator.domain.BusinessRuleType;
-
-public class AttributeCompareRule extends BusinessRuleType {
+public class AttributeListRule extends BusinessRuleType {
 	private String targetTableName;
 	private String targetColumnName;
-	private String compareValue;
-
-	public AttributeCompareRule(String targetTableName, String targetColumnName, String compareValue) {
-		super("AttributeCompareRule", "ACMP", "The attribute value has to be 'equal to', 'not equal to', 'greater than', 'less than', 'greater than or equal to' or 'less than or equal to' a given value.", null);
+	private String valueList;
+	
+	public AttributeListRule(String targetTableName, String targetColumnName, String valueList) {
+		super("AttributeListRule", "ALIS", "Attribute List Rule Description.", null);
 		this.targetTableName = targetTableName;
 		this.targetColumnName = targetColumnName;
-		this.compareValue = compareValue;
+		this.valueList = valueList;
 	}
 	
-	public AttributeCompareRule() {
+	public AttributeListRule() {
 		this(null, null, null);
 	}
 	
@@ -35,17 +32,18 @@ public class AttributeCompareRule extends BusinessRuleType {
 		this.targetColumnName = targetColumnName;
 	}
 	
-	public String getCompareValue() {
-		return compareValue;
+	public String getValueList() {
+		return valueList;
 	}
 	
-	public void setCompareValue(String compareValue) {
-		this.compareValue = compareValue;
+	public void setValueList(String valueList) {
+		this.valueList = valueList;
 	}
-	
+
 	@Override
 	public String fillTemplate(String template, BusinessRule br) {
-		template = template.replaceAll("<comparevalue>", compareValue);
+		//<<methode om list om te zetten naar sql code of apex laten doen >>
+		template = template.replaceAll("<list>", valueList);
 		template = template.replaceAll("<operator>", br.getOperator().getSign());
 		template = template.replaceAll("<targetcolumn>", targetColumnName);
 		template = template.replaceAll("<targettable>", targetTableName);
