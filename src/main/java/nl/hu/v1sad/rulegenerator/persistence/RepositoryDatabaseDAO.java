@@ -96,7 +96,7 @@ public class RepositoryDatabaseDAO extends BaseDAO{
 	}
 
 	public void saveTrigger(String trigger, String databaseName) {
-		String query = 	"UPDATE RULETRIGGER SET CODE = '" + trigger + "' WHERE UPPER(DATABASENAME) = '" + databaseName.toUpperCase() + "'";
+		String query = 	"UPDATE RULETRIGGER SET CODE = 'test' WHERE UPPER(DATABASENAME) = '" + databaseName.toUpperCase() + "'";
 		try (Connection con = super.getRepositoryConnection()){
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
