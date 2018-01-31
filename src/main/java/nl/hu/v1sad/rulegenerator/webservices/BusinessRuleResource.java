@@ -12,13 +12,13 @@ import nl.hu.v1sad.rulegenerator.domain.BusinessRule;
 
 @Path("/businessrules")
 public class BusinessRuleResource {
-	BusinessRuleService brService = BusinessRuleProvider.getBusinessRuleService();
+	BusinessRuleService brService = BusinessRuleServiceProvider.getBusinessRuleService();
 
 	@GET
 	@Path("{DatabaseName}")
 	@Produces("application/json")
 	public String getBusinessRules(@PathParam("DatabaseName") String dbName) {
-		BusinessRuleService service = BusinessRuleProvider.getBusinessRuleService();
+		BusinessRuleService service = BusinessRuleServiceProvider.getBusinessRuleService();
 		JsonArrayBuilder jab = Json.createArrayBuilder();
 		for(BusinessRule br : service.getAllBusinessRules(dbName)) { 
 			JsonObjectBuilder job = Json.createObjectBuilder();	

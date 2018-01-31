@@ -16,7 +16,7 @@ public class TriggerTextTestResource {
 	@Path("{DatabaseName}")
 	@Produces("application/json")
 	public String getTrigger(@PathParam("DatabaseName") String dbName ){
-		TriggerTextTestService service = TriggerTextTestProvider.getTriggerTextTestService();
+		TriggerTextTestService service = TriggerTextTestServiceProvider.getTriggerTextTestService();
 		JsonArrayBuilder jab = Json.createArrayBuilder();
 
 		for(String s : service.generateTrigger(dbName)) {

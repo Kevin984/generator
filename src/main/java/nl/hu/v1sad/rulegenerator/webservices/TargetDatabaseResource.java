@@ -15,13 +15,13 @@ import nl.hu.v1sad.rulegenerator.persistence.TargetDatabaseDAO;
 @Path("/targetdatabase")
 public class TargetDatabaseResource {
 	private TargetDatabaseDAO tdDAO = new TargetDatabaseDAO();
-	TargetDatabaseService tdService = TargetDatabaseProvider.getTargetDatabaseService();
+	TargetDatabaseService tdService = TargetDatabaseServiceProvider.getTargetDatabaseService();
 	
 	@GET
 	@Path("{DatabaseName}/tables")
 	@Produces("application/json")
 	public String getTableNames(@PathParam("DatabaseName") String dbName ){
-		TargetDatabaseService service = TargetDatabaseProvider.getTargetDatabaseService();
+		TargetDatabaseService service = TargetDatabaseServiceProvider.getTargetDatabaseService();
 		JsonArrayBuilder jab = Json.createArrayBuilder();
 
 		for(String s : service.getTablesFromDatabase(dbName)) {
@@ -37,7 +37,7 @@ public class TargetDatabaseResource {
 	@Path("{DatabaseName}/{TableName}/columns")
 	@Produces("application/json")
 	public String getColumnNames(@PathParam("DatabaseName") String dbName, @PathParam("TableName") String tableName){
-		TargetDatabaseService service = TargetDatabaseProvider.getTargetDatabaseService();
+		TargetDatabaseService service = TargetDatabaseServiceProvider.getTargetDatabaseService();
 		JsonArrayBuilder jab = Json.createArrayBuilder();
 
 		for(String s : service.getColumnsFromTable(dbName, tableName)) {

@@ -1,6 +1,6 @@
 package nl.hu.v1sad.rulegenerator.webservices;
 
-public class TriggerTextTestProvider {
+public class TriggerTextTestServiceProvider {
 	private static TriggerTextTestService ttts = new TriggerTextTestService();
 	
 	public static TriggerTextTestService getTriggerTextTestService() {

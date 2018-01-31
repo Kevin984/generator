@@ -1,9 +1,18 @@
-package nl.hu.v1sad.rulegenerator.services;
+package tempPackage.PleaseDeleteLater;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import nl.hu.v1sad.rulegenerator.domain.BusinessRuleType;
+import nl.hu.v1sad.rulegenerator.services.AttributeCompareRule;
+import nl.hu.v1sad.rulegenerator.services.AttributeListRule;
+import nl.hu.v1sad.rulegenerator.services.AttributeOtherRule;
+import nl.hu.v1sad.rulegenerator.services.AttributeRangeRule;
+import nl.hu.v1sad.rulegenerator.services.EntityOtherRule;
+import nl.hu.v1sad.rulegenerator.services.InterEntityCompareRule;
+import nl.hu.v1sad.rulegenerator.services.ModifyRule;
+import nl.hu.v1sad.rulegenerator.services.TupleCompareRule;
+import nl.hu.v1sad.rulegenerator.services.TupleOtherRule;
 
 
 
