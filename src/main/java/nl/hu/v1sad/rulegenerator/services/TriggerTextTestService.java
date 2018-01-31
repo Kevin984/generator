@@ -1,8 +1,6 @@
-package nl.hu.v1sad.rulegenerator.webservices;
+package nl.hu.v1sad.rulegenerator.services;
 
 import java.util.List;
-
-import tempPackage.PleaseDeleteLater.GenerateBusinessRulesController;
 
 public class TriggerTextTestService {
 	private GenerateBusinessRulesController controller = new GenerateBusinessRulesController();

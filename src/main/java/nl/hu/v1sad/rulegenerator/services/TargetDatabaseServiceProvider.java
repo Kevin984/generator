@@ -1,4 +1,4 @@
-package nl.hu.v1sad.rulegenerator.webservices;
+package nl.hu.v1sad.rulegenerator.services;
 
 public class TargetDatabaseServiceProvider {
 private static TargetDatabaseService tbs = new TargetDatabaseService();

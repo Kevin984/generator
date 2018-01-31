@@ -1,7 +1,4 @@
-package nl.hu.v1sad.rulegenerator.services;
-
-import nl.hu.v1sad.rulegenerator.domain.BusinessRule;
-import nl.hu.v1sad.rulegenerator.domain.BusinessRuleType;
+package nl.hu.v1sad.rulegenerator.domain;
 
 public class ModifyRule extends BusinessRuleType {
 	private String customCode;
@@ -25,7 +22,12 @@ public class ModifyRule extends BusinessRuleType {
 
 	@Override
 	public String fillTemplate(String template, BusinessRule br) {
-		return "return MODI";
+		template = template.replaceAll("<code>", br.getRuleType().getCode());
+		template = template.replaceAll("<error>", br.getErrorMessage());
+		template = template.replaceAll("<target_table>", br.getRuleType().getCode());
+		template = template.replaceAll("<code>", br.getRuleType().getCode());
+
+		return template;
 	}
 
 
