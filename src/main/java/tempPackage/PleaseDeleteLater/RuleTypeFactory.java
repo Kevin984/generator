@@ -14,8 +14,6 @@ import nl.hu.v1sad.rulegenerator.services.ModifyRule;
 import nl.hu.v1sad.rulegenerator.services.TupleCompareRule;
 import nl.hu.v1sad.rulegenerator.services.TupleOtherRule;
 
-
-
 public class RuleTypeFactory {
 	public BusinessRuleType getRuleType(String ruleType, ResultSet rs) {
 		try {

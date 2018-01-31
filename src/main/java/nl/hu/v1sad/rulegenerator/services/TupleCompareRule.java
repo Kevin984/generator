@@ -8,7 +8,7 @@ public class TupleCompareRule extends BusinessRuleType {
 	private String firstTargetColumnName;
 	private String secondTargetColumnName;
 	
-	TupleCompareRule(String targetTableName, String firstTargetColumnName, String secondTargetColumnName) {
+	public TupleCompareRule(String targetTableName, String firstTargetColumnName, String secondTargetColumnName) {
 		super("TupleCompareRule", "TCMP", "Tuple Compare Rule Description.", null);
 		this.targetTableName = targetTableName;
 		this.firstTargetColumnName = firstTargetColumnName;
