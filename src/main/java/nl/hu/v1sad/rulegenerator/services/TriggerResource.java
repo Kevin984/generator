@@ -13,13 +13,13 @@ import javax.ws.rs.Produces;
 public class TriggerResource {
 	
 	@GET
-	@Path("{DatabaseName}/{TriggerName}")
+	@Path("{DatabaseName}")
 	@Produces("application/json")
-	public String getTrigger(@PathParam("DatabaseName") String dbName, @PathParam("TriggerName") String triggerName){
+	public String getTrigger(@PathParam("DatabaseName") String dbName){
 		TriggerService service = TriggerServiceProvider.getTriggerTextTestService();
 		JsonArrayBuilder jab = Json.createArrayBuilder();
 
-		for(String s : service.generateTrigger(dbName, triggerName)) {
+		for(String s : service.generateTrigger(dbName)) {
 			JsonObjectBuilder job = Json.createObjectBuilder();
 			job.add("message", s);
 			jab.add(job);
