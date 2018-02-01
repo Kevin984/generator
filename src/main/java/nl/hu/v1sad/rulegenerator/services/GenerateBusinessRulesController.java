@@ -20,7 +20,7 @@ public class GenerateBusinessRulesController {
 	public GenerateBusinessRulesController() {
 	}
 	
-	public List<String> generate(String databaseName, String triggerName) {
+	public List<String> generate(String databaseName) {
 		rules.clear();
 		message.clear();
 		rules = repoDAO.selectBusinessRules(databaseName);
@@ -33,7 +33,7 @@ public class GenerateBusinessRulesController {
 			entireTrigger.concat(template);
 		}
 		
-		message.add(targetDAO.executeTrigger(databaseName, triggers, rules, triggerName));
+		message.add(targetDAO.executeTrigger(databaseName, triggers, rules));
 		return message;
 	}
 }
