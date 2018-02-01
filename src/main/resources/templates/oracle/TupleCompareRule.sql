@@ -7,7 +7,7 @@ DECLARE
   V_COLUMN_1    VARCHAR2(60) := :NEW.<tuple_column_1>;
   V_COLUMN_2    VARCHAR2(255) := :NEW.<tuple_column_2>;
 BEGIN
-  IF (V_COLUMN_1 <operand> V_COLUMN_2) THEN
+  IF (V_COLUMN_1 <operator> V_COLUMN_2) THEN
     L_PASSED := TRUE;
   ELSE
     RAISE_APPLICATION_ERROR(-20000, '<error>');
