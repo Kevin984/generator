@@ -51,10 +51,10 @@ public class RepositoryDatabaseDAO extends BaseDAO{
 		return businessRules;
 	}
 	
-	public boolean updateBusinessRuleStatusAndTriggername(BusinessRule br, String triggerName) {
+	public boolean updateBusinessRuleStatusAndTriggername(BusinessRule br) {
 		boolean result = false;
 		String query ="UPDATE BUSINESSRULE SET "
-				+ "STATUS = 'GENERATED', TRIGGERNAME = '" + triggerName + "'"
+				+ "STATUS = 'GENERATED'"
 				+ "WHERE NAME = '" + br.getName() +"'";
 		
 		try (Connection con = super.getRepositoryConnection()){
